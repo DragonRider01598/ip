@@ -3,13 +3,15 @@ import RefreshImage from './Filters/RefreshImage';
 import GrayscaleFilter from './Filters/GrayscaleFilter';
 import ThresholdingFilter from './Filters/ThresholdingFilter';
 import DigitalNegativeFilter from './Filters/DigitalNegativeFilter';
-import ContrastStretchingFilter from './Filters/ContrastStretchingFilter ';
-import PowerLawTransformationFilter from './Filters/PowerLawTransformationFilter ';
-import BitPlaneSlicingFilter from './Filters/BitPlaneSlicingFilter ';
-import DynamicRangeCompressionFilter from './Filters/DynamicRangeCompressionFilter ';
-import GrayLevelSlicingFilter from './Filters/GrayLevelSlicingFilter ';
+import ContrastStretchingFilter from './Filters/ContrastStretchingFilter';
+import PowerLawTransformationFilter from './Filters/PowerLawTransformationFilter';
+import BitPlaneSlicingFilter from './Filters/BitPlaneSlicingFilter';
+import DynamicRangeCompressionFilter from './Filters/DynamicRangeCompressionFilter';
+import GrayLevelSlicingFilter from './Filters/GrayLevelSlicingFilter';
 import LowPassAverageFilter from './Filters/LowPassAverageFilter';
 import LowPassMedianFilter from './Filters/LowPassMedianFilter';
+import HighPassFilter from './Filters/HighPassFilter';
+import CustomMaskFilter from './Filters/CustomMaskFilter';
 
 const FilterList = () => {
   return (
@@ -27,7 +29,9 @@ const FilterList = () => {
       <GrayLevelSlicingFilter />
       <LowPassAverageFilter />
       <LowPassMedianFilter />
-      
+      <HighPassFilter />
+      <CustomMaskFilter />
+
     </div>
   );
 };
