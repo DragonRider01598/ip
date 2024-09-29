@@ -52,7 +52,7 @@ const BitPlaneSlicingFilter = () => {
          ctx.putImageData(newImageData, 0, 0);
          setModifiedImage(canvas.toDataURL());
       };
-   }, [bitPlane, unFilteredImage]);
+   }, [bitPlane, unFilteredImage, setModifiedImage]);
 
    return (
       <div>

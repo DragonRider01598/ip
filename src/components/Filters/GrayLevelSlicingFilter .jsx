@@ -70,7 +70,7 @@ const GrayLevelSlicingFilter = () => {
          ctx.putImageData(newImageData, 0, 0);
          setModifiedImage(canvas.toDataURL());
       };
-   }, [lowerBound, upperBound, unFilteredImage, useBackground]);
+   }, [lowerBound, upperBound, unFilteredImage, useBackground, setModifiedImage]);
 
    return (
       <div>

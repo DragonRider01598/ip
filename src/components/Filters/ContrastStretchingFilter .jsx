@@ -45,7 +45,7 @@ const ContrastStretchingFilter = () => {
          ctx.putImageData(imageData, 0, 0);
          setModifiedImage(canvas.toDataURL());
       };
-   }, [minValue, maxValue]);
+   }, [minValue, maxValue, setModifiedImage, unFilteredImage]);
 
    return (
       <div>

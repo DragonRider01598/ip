@@ -55,7 +55,7 @@ const DynamicRangeCompressionFilter = () => {
          ctx.putImageData(newImageData, 0, 0);
          setModifiedImage(canvas.toDataURL());
       };
-   }, [compressionFactor, unFilteredImage]);
+   }, [compressionFactor, unFilteredImage, setModifiedImage]);
 
    return (
       <div>

@@ -44,7 +44,7 @@ const ThresholdingFilter = () => {
          ctx.putImageData(imageData, 0, 0);
          setModifiedImage(canvas.toDataURL());
       };
-   }, [threshold]);
+   }, [threshold, setModifiedImage, unFilteredImage]);
 
    return (
       <div>

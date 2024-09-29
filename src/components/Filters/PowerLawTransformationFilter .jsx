@@ -45,7 +45,7 @@ const PowerLawTransformationFilter = () => {
          ctx.putImageData(imageData, 0, 0);
          setModifiedImage(canvas.toDataURL());
       };
-   }, [gamma]);
+   }, [gamma, setModifiedImage, unFilteredImage]);
 
    return (
       <div>

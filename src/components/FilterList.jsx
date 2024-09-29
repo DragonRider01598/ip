@@ -8,6 +8,8 @@ import PowerLawTransformationFilter from './Filters/PowerLawTransformationFilter
 import BitPlaneSlicingFilter from './Filters/BitPlaneSlicingFilter ';
 import DynamicRangeCompressionFilter from './Filters/DynamicRangeCompressionFilter ';
 import GrayLevelSlicingFilter from './Filters/GrayLevelSlicingFilter ';
+import LowPassAverageFilter from './Filters/LowPassAverageFilter';
+import LowPassMedianFilter from './Filters/LowPassMedianFilter';
 
 const FilterList = () => {
   return (
@@ -23,7 +25,9 @@ const FilterList = () => {
       <BitPlaneSlicingFilter />
       <DynamicRangeCompressionFilter />
       <GrayLevelSlicingFilter />
-
+      <LowPassAverageFilter />
+      <LowPassMedianFilter />
+      
     </div>
   );
 };
