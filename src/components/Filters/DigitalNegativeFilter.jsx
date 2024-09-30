@@ -1,5 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { ImageContext } from '../../context/ImageContext';
+import CustomButton from './components/CustomButton';
+import ConfirmDialog from './components/ConfirmDialog';
 
 const DigitalNegativeFilter = () => {
    const { modifiedImage, setModifiedImage } = useContext(ImageContext);
@@ -45,30 +47,15 @@ const DigitalNegativeFilter = () => {
    return (
       <div>
          {!isConfirming ? (
-            <button
-               onClick={applyNegative}
-               className="w-full bg-blue-500 text-white py-2 mb-2 rounded-lg hover:bg-blue-600 transition-colors"
-            >
-               Apply Digital Negative
-            </button>
+            <CustomButton onClick={applyNegative} text={"Digital Negative"} />
          ) : (
-            <div className="bg-gray-200 text-gray-800 py-2 mb-2 rounded-lg px-4 pb-4">
-               <h3 className="text-lg font-semibold mb-2">Apply Digital Negative</h3>
-               <p>Are you sure you want to apply the digital negative filter?</p>
-               <div className="flex justify-between mt-4">
-                  <button
-                     onClick={confirmApply}
-                     className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600"
-                  >
-                     Apply
-                  </button>
-                  <button
-                     onClick={cancelApply}
-                     className="bg-gray-300 text-gray-800 py-2 px-4 rounded-lg hover:bg-gray-400"
-                  >
-                     Cancel
-                  </button>
-               </div>
+            <div className="dark:bg-gray-500 dark:text-black bg-gray-200 text-gray-800 py-2 mb-2 rounded-lg px-4 pb-4">
+               <h3 className="text-lg font-semibold mb-2">Digital Negative</h3>
+               <ConfirmDialog
+                  message={"digital negative"}
+                  onConfirm={confirmApply}
+                  onCancel={cancelApply}
+               />
             </div>
          )}
       </div>

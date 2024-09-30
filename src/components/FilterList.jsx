@@ -12,6 +12,8 @@ import LowPassAverageFilter from './Filters/LowPassAverageFilter';
 import LowPassMedianFilter from './Filters/LowPassMedianFilter';
 import HighPassFilter from './Filters/HighPassFilter';
 import CustomMaskFilter from './Filters/CustomMaskFilter';
+import HistogramEqualizationFilter from './Filters/HistogramEqualizationFilter'
+import HistogramStretchingFilter from './Filters/HistogramStretchingFilter';
 
 const FilterList = () => {
   return (
@@ -31,7 +33,8 @@ const FilterList = () => {
       <LowPassMedianFilter />
       <HighPassFilter />
       <CustomMaskFilter />
-
+      <HistogramEqualizationFilter />
+      <HistogramStretchingFilter />
     </div>
   );
 };

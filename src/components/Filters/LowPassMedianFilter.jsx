@@ -1,5 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { ImageContext } from '../../context/ImageContext';
+import CustomButton from './components/CustomButton';
+import ConfirmDialog from './components/ConfirmDialog';
 
 const LowPassMedianFilter = () => {
    const { modifiedImage, setModifiedImage } = useContext(ImageContext);
@@ -86,18 +88,11 @@ const LowPassMedianFilter = () => {
    return (
       <div>
          {!isConfirming ? (
-            <div>
-               <button
-                  onClick={applyMedianFilter}
-                  className="w-full bg-blue-500 text-white py-2 mb-2 rounded-lg hover:bg-blue-600 transition-colors"
-               >
-                  Apply Low-Pass Median Filter
-               </button>
-            </div>
+            <CustomButton onClick={applyMedianFilter} text={"Low-Pass Median Filter"} />
          ) : (
-            <div className="bg-gray-200 text-gray-800 py-2 mb-2 rounded-lg px-4 pb-4">
-               <h3 className="text-lg font-semibold mb-2">Apply Low-Pass Median Filter</h3>
-               <label className="block mb-2 text-gray-700">Filter Size: {filterSize}</label>
+            <div className="dark:bg-gray-500 dark:text-black bg-gray-200 text-gray-800 py-2 mb-2 rounded-lg px-4 pb-4">
+               <h3 className="text-lg font-semibold mb-2">Low-Pass Median Filter</h3>
+               <label className="block mb-2 text-gray-700 dark:text-black">Filter Size: {filterSize}</label>
                <input
                   type="range"
                   min="3"
@@ -107,21 +102,11 @@ const LowPassMedianFilter = () => {
                   onChange={(e) => setFilterSize(Number(e.target.value))}
                   className="w-full mb-4"
                />
-               <p>Are you sure you want to apply the low-pass median filter?</p>
-               <div className="flex justify-between mt-4">
-                  <button
-                     onClick={confirmApply}
-                     className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600"
-                  >
-                     Apply
-                  </button>
-                  <button
-                     onClick={cancelApply}
-                     className="bg-gray-300 text-gray-800 py-2 px-4 rounded-lg hover:bg-gray-400"
-                  >
-                     Cancel
-                  </button>
-               </div>
+               <ConfirmDialog
+                  message={"low-pass median"}
+                  onConfirm={confirmApply}
+                  onCancel={cancelApply}
+               />
             </div>
          )}
       </div>

@@ -1,5 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { ImageContext } from '../../context/ImageContext';
+import CustomButton from './components/CustomButton';
+import ConfirmDialog from './components/ConfirmDialog';
 
 const GrayLevelSlicingFilter = () => {
    const { modifiedImage, setModifiedImage } = useContext(ImageContext);
@@ -75,15 +77,10 @@ const GrayLevelSlicingFilter = () => {
    return (
       <div>
          {!isConfirming ? (
-            <button
-               onClick={applyGrayLevelSlicing}
-               className="w-full bg-blue-500 text-white py-2 mb-2 rounded-lg hover:bg-blue-600 transition-colors"
-            >
-               Apply Gray Level Slicing
-            </button>
+            <CustomButton onClick={applyGrayLevelSlicing} text={"Gray Level Slicing"} />
          ) : (
-            <div className="bg-gray-200 text-gray-800 py-2 mb-2 rounded-lg px-4 pb-4">
-               <h3 className="text-lg font-semibold mb-2">Apply Gray Level Slicing</h3>
+            <div className="dark:bg-gray-500 dark:text-black bg-gray-200 text-gray-800 py-2 mb-2 rounded-lg px-4 pb-4">
+               <h3 className="text-lg font-semibold mb-2">Gray Level Slicing</h3>
 
                <p>Adjust the lower and upper bounds:</p>
                <div className="flex items-center mb-4">
@@ -120,22 +117,11 @@ const GrayLevelSlicingFilter = () => {
                   />
                   <label>{useBackground ? 'Use Background' : 'Transparent Background'}</label>
                </div>
-
-               <p>Are you sure you want to apply the gray level slicing filter?</p>
-               <div className="flex justify-between mt-4">
-                  <button
-                     onClick={confirmApply}
-                     className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600"
-                  >
-                     Apply
-                  </button>
-                  <button
-                     onClick={cancelApply}
-                     className="bg-gray-300 text-gray-800 py-2 px-4 rounded-lg hover:bg-gray-400"
-                  >
-                     Cancel
-                  </button>
-               </div>
+               <ConfirmDialog
+                  message={"gray level slicing"}
+                  onConfirm={confirmApply}
+                  onCancel={cancelApply}
+               />
             </div>
          )}
       </div>

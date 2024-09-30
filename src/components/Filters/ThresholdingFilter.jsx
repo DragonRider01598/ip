@@ -1,5 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { ImageContext } from '../../context/ImageContext';
+import ConfirmDialog from './components/ConfirmDialog';
+import CustomButton from './components/CustomButton';
 
 const ThresholdingFilter = () => {
    const { modifiedImage, setModifiedImage } = useContext(ImageContext);
@@ -49,15 +51,10 @@ const ThresholdingFilter = () => {
    return (
       <div>
          {!isConfirming ? (
-            <button
-               onClick={applyThresholding}
-               className="w-full bg-blue-500 text-white py-2 mb-2 rounded-lg hover:bg-blue-600 transition-colors"
-            >
-               Apply Thresholding
-            </button>
+            <CustomButton onClick={applyThresholding} text={"Thresholding"} />
          ) : (
-            <div className="bg-gray-200 text-gray-800 py-2 mb-2 rounded-lg px-4 pb-4">
-               <h3 className="text-lg font-semibold mb-2">Apply Thresholding</h3>
+            <div className="bg-gray-200 text-gray-800 py-2 mb-2 rounded-lg px-4 pb-4 dark:bg-gray-500 dark:text-black">
+               <h3 className="text-lg font-semibold mb-2">Thresholding</h3>
                <p>Adjust the threshold value:</p>
                <div className="flex items-center mb-4">
                   <input
@@ -70,21 +67,11 @@ const ThresholdingFilter = () => {
                   />
                   <span className="ml-2">{threshold}</span>
                </div>
-               <p>Are you sure you want to apply the thresholding filter?</p>
-               <div className="flex justify-between mt-4">
-                  <button
-                     onClick={confirmApply}
-                     className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600"
-                  >
-                     Apply
-                  </button>
-                  <button
-                     onClick={cancelApply}
-                     className="bg-gray-300 text-gray-800 py-2 px-4 rounded-lg hover:bg-gray-400"
-                  >
-                     Cancel
-                  </button>
-               </div>
+               <ConfirmDialog
+                  message={"thresholding"}
+                  onConfirm={confirmApply}
+                  onCancel={cancelApply}
+               />
             </div>
          )}
       </div>
