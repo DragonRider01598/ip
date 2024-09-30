@@ -1,10 +1,9 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { ImageContext } from '../context/ImageContext';
 import { FaUpload, FaDownload } from 'react-icons/fa';
 
 const UploadImage = () => {
-  const { setOriginalImage, setModifiedImage, modifiedImage } = useContext(ImageContext);
-  const [imageUploaded, setImageUploaded] = useState(false);
+  const { setOriginalImage, setModifiedImage, modifiedImage, imageUploaded, setImageUploaded } = useContext(ImageContext);
 
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
@@ -20,10 +19,10 @@ const UploadImage = () => {
   };
 
   return (
-    <div className="flex flex-row items-center justify-center space-x-4">
-      <label className="flex-shrink-0 w-28 sm:w-36 md:w-40 lg:w-48 h-24 sm:h-28 flex flex-col items-center justify-center bg-white rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 cursor-pointer hover:bg-blue-500 hover:text-white transition-colors">
-        <FaUpload className="w-6 h-6 text-black/65" />
-        <span className="mt-1 text-sm sm:text-base">Upload</span>
+    <div className="flex flex-row items-center justify-center space-x-6">
+      <label className="flex-shrink-0 w-32 sm:w-40 md:w-48 lg:w-56 h-24 sm:h-28 flex flex-col items-center justify-center cursor-pointer bg-white dark:bg-gray-800 rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 dark:border-blue-400  hover:bg-blue-500 hover:text-white dark:hover:bg-blue-500 dark:hover:text-white text-blue-500 dark:text-blue-400 transition-colors duration-300">
+        <FaUpload className="w-8 h-8" />
+        <span className="mt-2 text-sm sm:text-base">Upload</span>
         <input
           type="file"
           accept="image/*"
@@ -35,16 +34,16 @@ const UploadImage = () => {
       <a
         href={imageUploaded ? modifiedImage : '#'}
         download="modified_image.png"
-        className={`flex-shrink-0 w-28 sm:w-36 md:w-40 lg:w-48 h-24 sm:h-28 flex flex-col items-center justify-center rounded-lg shadow-lg tracking-wide uppercase border transition-colors ${imageUploaded
-          ? 'bg-white border-green-500 text-green-500 hover:bg-green-500 hover:text-white cursor-pointer'
-          : 'bg-gray-200 border-gray-400 text-gray-500 cursor-not-allowed'
+        className={`flex-shrink-0 w-32 sm:w-40 md:w-48 lg:w-56 h-24 sm:h-28 flex flex-col items-center justify-center rounded-lg shadow-lg tracking-wide uppercase border transition-colors duration-300 ${imageUploaded
+          ? 'bg-white dark:bg-gray-800 border-green-500 dark:border-green-400 text-green-500 dark:text-green-400 hover:bg-green-500 hover:text-white dark:hover:bg-green-500 dark:hover:text-white cursor-pointer'
+          : 'bg-gray-200 dark:bg-gray-700 border-gray-400 text-gray-500 dark:text-gray-500 cursor-not-allowed'
           }`}
         onClick={(e) => {
           if (!imageUploaded) e.preventDefault();
         }}
       >
-        <FaDownload className="w-6 h-6 text-black/65" />
-        <span className="mt-1 text-sm sm:text-base">Download</span>
+        <FaDownload className="w-8 h-8" />
+        <span className="mt-2 text-sm sm:text-base" >Download</span>
       </a>
     </div>
   );

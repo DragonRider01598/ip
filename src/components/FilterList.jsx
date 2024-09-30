@@ -15,7 +15,7 @@ import CustomMaskFilter from './Filters/CustomMaskFilter';
 
 const FilterList = () => {
   return (
-    <div className="w-full max-w-xs h-80 overflow-y-auto border border-gray-300 rounded-lg shadow p-4">
+    <div className="w-full max-w-xs h-80 overflow-y-auto border border-gray-600 rounded-lg shadow-lg p-4 dark:bg-gray-800 dark:text-white">
       <h2 className="text-xl font-semibold mb-4">Image Filters</h2>
 
       <RefreshImage />
