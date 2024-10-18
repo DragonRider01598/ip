@@ -14,6 +14,8 @@ import HighPassFilter from './Filters/HighPassFilter';
 import CustomMaskFilter from './Filters/CustomMaskFilter';
 import HistogramEqualizationFilter from './Filters/HistogramEqualizationFilter'
 import HistogramStretchingFilter from './Filters/HistogramStretchingFilter';
+import DilationFilter from './Filters/DilationFilter';
+import ErosionFilter from './Filters/ErosionFilter';
 
 const FilterList = () => {
   return (
@@ -35,6 +37,8 @@ const FilterList = () => {
       <CustomMaskFilter />
       <HistogramEqualizationFilter />
       <HistogramStretchingFilter />
+      <DilationFilter />
+      <ErosionFilter />
     </div>
   );
 };
